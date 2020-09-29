@@ -46,8 +46,7 @@
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Use Cases\UseCase1.cs" />
-    <Compile Include="Use Cases\UseCase2.cs" />
+    <Compile Include="Use Cases\MovementLogic.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -24,5 +24,35 @@ namespace SnakeLadder.Use_Cases
         {
             return new Random().Next(1, 7);
         }
+
+        public string MovePlayer(Player player, int roll)
+        {
+            int NO_PLAY = 0;
+            int LADDER = 1;
+            int SNAKE = 2;
+
+            int choice = new Random().Next(0,3);
+
+            if(choice==NO_PLAY)
+            {
+                return "NO PLAY";
+            }
+            else if(choice==LADDER)
+            {
+                player.setPosition(player.getPosition() + roll);
+                return "LADDER";
+            }
+            else if(choice==SNAKE)
+            {
+                int newPos = player.getPosition() - roll > 0 ? player.getPosition() - roll : 0;
+                player.setPosition(newPos);
+                return "SNAKE";
+            }
+            else
+            {
+                return "Error";
+            }
+
+        }
     }
 }

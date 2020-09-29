@@ -14,14 +14,16 @@ namespace SnakeLadder
             Console.WriteLine("Welcome to Snake Ladder Problem");
 
             int roll;
-
+            MovementLogic ml = new MovementLogic();
             //Use Case 1
-            Player player = new MovementLogic().InitialisePlayer();
+            Player player = ml.InitialisePlayer();
 
             //Use Case 2
             roll = new MovementLogic().RollDice();
             Console.WriteLine("Player " + player.getName() + " has rolled a " + roll);
 
+            //Use Case 3
+            Console.WriteLine("Player " + player.getName() +" gets "+ ml.MovePlayer(player,roll) + " gets to " + player.getPosition());
 
             //Temp Read Line
             Console.ReadLine();
