@@ -10,6 +10,7 @@ namespace SnakeLadder.Use_Cases
     {
         static int newRoll=0;
         static int choice = 0;
+        static int throwNumber = 0;
 
         Random rn = new Random();
 
@@ -70,7 +71,8 @@ namespace SnakeLadder.Use_Cases
             while(player.getPosition()!=100)
             {
                 roll = RollDice();
-                Console.WriteLine("Player:" + player.getName() + "\tRolls:" + roll + "  Gets:" + MovePlayer(player, roll) + "\tFinal Position:" + player.getPosition());
+                throwNumber++;
+                Console.WriteLine("Player:" + player.getName()+"\tThrow Number:" + throwNumber + "\tRoll:" + roll + "  Gets:" + MovePlayer(player, roll) + "\tFinal Position:" + player.getPosition());
             }
 
             Console.Write(player.getName()+" has finished the game.");
