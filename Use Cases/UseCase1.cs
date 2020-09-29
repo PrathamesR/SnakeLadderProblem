@@ -12,7 +12,11 @@ namespace SnakeLadder.Use_Cases
         {
             Player player = new Player();
             player.setPosition(0);
-            Console.Write("Player has been initialied");
+
+            Console.Write("Enter players Name :");
+            player.setName(Console.ReadLine());
+            Console.WriteLine("Player "+ player.getName()+" has been initialied");
+
             return player;
         }
     }

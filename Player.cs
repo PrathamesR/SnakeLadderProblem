@@ -8,7 +8,18 @@ namespace SnakeLadder
 {
     public class Player
     {
+        private string name;
         private int position;
+
+        public void setName(string name)
+        {
+            this.name = name;
+        }
+
+        public string getName()
+        {
+            return name;
+        }
 
         public void setPosition(int position)
         {
