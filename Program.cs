@@ -25,6 +25,10 @@ namespace SnakeLadder
             //Use Case 3
             Console.WriteLine("Player " + player.getName() +" gets "+ ml.MovePlayer(player,roll) + " gets to " + player.getPosition());
 
+
+            //Use Case 4
+            ml.PlayGame(player);
+
             //Temp Read Line
             Console.ReadLine();
         }

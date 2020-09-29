@@ -8,6 +8,11 @@ namespace SnakeLadder.Use_Cases
 {
     class MovementLogic
     {
+        static int newRoll=0;
+        static int choice = 0;
+
+        Random rn = new Random();
+
         public Player InitialisePlayer()
         {
             Player player = new Player();
@@ -22,7 +27,8 @@ namespace SnakeLadder.Use_Cases
 
         public int RollDice()
         {
-            return new Random().Next(1, 7);
+            newRoll = rn.Next(1, 7);
+            return newRoll;
         }
 
         public string MovePlayer(Player player, int roll)
@@ -31,20 +37,21 @@ namespace SnakeLadder.Use_Cases
             int LADDER = 1;
             int SNAKE = 2;
 
-            int choice = new Random().Next(0,3);
+            choice = rn.Next(0, 3);
 
-            if(choice==NO_PLAY)
+            if (choice==NO_PLAY)
             {
                 return "NO PLAY";
             }
             else if(choice==LADDER)
             {
-                player.setPosition(player.getPosition() + roll);
+                int newPos = player.getPosition() + roll;
+                player.setPosition(newPos);
                 return "LADDER";
             }
             else if(choice==SNAKE)
             {
-                int newPos = player.getPosition() - roll > 0 ? player.getPosition() - roll : 0;
+                int newPos = player.getPosition() - roll > 0 ? player.getPosition() - roll :0;
                 player.setPosition(newPos);
                 return "SNAKE";
             }
@@ -53,6 +60,20 @@ namespace SnakeLadder.Use_Cases
                 return "Error";
             }
 
+        }
+
+        public void PlayGame(Player player)
+        { 
+            int roll;
+            player.setPosition(0);
+            Console.WriteLine("\nIntitiated player to 0");
+            while(player.getPosition()<100)
+            {
+                roll = RollDice();
+                Console.WriteLine("Player:" + player.getName() + "\tRolls:" + roll + "  Gets:" + MovePlayer(player, roll) + "\tFinal Position:" + player.getPosition());
+            }
+
+            Console.Write(player.getName()+" has finished the game.");
         }
     }
 }
