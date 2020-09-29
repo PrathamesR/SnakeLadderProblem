@@ -45,7 +45,7 @@ namespace SnakeLadder.Use_Cases
             }
             else if(choice==LADDER)
             {
-                int newPos = player.getPosition() + roll;
+                int newPos = player.getPosition() + roll <= 100 ? player.getPosition() + roll : player.getPosition();
                 player.setPosition(newPos);
                 return "LADDER";
             }
@@ -67,7 +67,7 @@ namespace SnakeLadder.Use_Cases
             int roll;
             player.setPosition(0);
             Console.WriteLine("\nIntitiated player to 0");
-            while(player.getPosition()<100)
+            while(player.getPosition()!=100)
             {
                 roll = RollDice();
                 Console.WriteLine("Player:" + player.getName() + "\tRolls:" + roll + "  Gets:" + MovePlayer(player, roll) + "\tFinal Position:" + player.getPosition());
