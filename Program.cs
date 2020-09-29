@@ -26,8 +26,13 @@ namespace SnakeLadder
             Console.WriteLine("Player " + player.getName() +" gets "+ ml.MovePlayer(player,roll) + " gets to " + player.getPosition());
 
 
-            //Use Case 4
+            //Use Case 4,5,6
             ml.PlayGame(player);
+
+
+            Player player2 = ml.InitialisePlayer();
+            //Use Case 7
+            ml.Play2PlayerGame(player, player2);
 
             //Temp Read Line
             Console.ReadLine();

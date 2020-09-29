@@ -75,7 +75,38 @@ namespace SnakeLadder.Use_Cases
                 Console.WriteLine("Player:" + player.getName()+"\tThrow Number:" + throwNumber + "\tRoll:" + roll + "  Gets:" + MovePlayer(player, roll) + "\tFinal Position:" + player.getPosition());
             }
 
-            Console.Write(player.getName()+" has finished the game.");
+            Console.WriteLine(player.getName()+" has finished the game.");
+        }
+
+        public void Play2PlayerGame(Player p1, Player p2)
+        {
+            p1.setPosition(0);
+            p2.setPosition(0);
+            throwNumber = 0;
+            Console.WriteLine("Initated both players location to 0");
+            int roll;
+            string winner = null;
+            while(winner==null)
+            {
+                throwNumber++;
+                roll = RollDice();
+                Console.Write("\nThrow Number:" + throwNumber);
+                Console.Write(" Player:" + p1.getName() +"\tRoll:"+roll + "  Gets:" + MovePlayer(p1,roll)+"\tFinal Position:"+p1.getPosition());
+                if (p1.getPosition() == 100)
+                {
+                    winner = p1.getName();
+                    break;
+                }
+                roll = RollDice();
+                Console.Write("\nThrow Number:" + throwNumber);
+                Console.Write(" Player:" + p2.getName() + "\tRoll:" + roll + "  Gets:" + MovePlayer(p2, roll) + "\tFinal Position:" + p2.getPosition());
+                if(p2.getPosition() == 100)
+                {
+                    winner = p2.getName();
+                }
+            }
+
+            Console.WriteLine("\nThe winner is " + winner);
         }
     }
 }
