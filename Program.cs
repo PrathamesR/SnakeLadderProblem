@@ -16,10 +16,10 @@ namespace SnakeLadder
             int roll;
 
             //Use Case 1
-            Player player = new UseCase1().InitialisePlayer();
+            Player player = new MovementLogic().InitialisePlayer();
 
             //Use Case 2
-            roll = new UseCase2().RollDice();
+            roll = new MovementLogic().RollDice();
             Console.WriteLine("Player " + player.getName() + " has rolled a " + roll);
 
 

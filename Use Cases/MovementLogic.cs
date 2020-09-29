@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SnakeLadder.Use_Cases
 {
-    class UseCase1
+    class MovementLogic
     {
         public Player InitialisePlayer()
         {
@@ -15,9 +15,14 @@ namespace SnakeLadder.Use_Cases
 
             Console.Write("Enter players Name :");
             player.setName(Console.ReadLine());
-            Console.WriteLine("Player "+ player.getName()+" has been initialied");
+            Console.WriteLine("Player " + player.getName() + " has been initialied");
 
             return player;
+        }
+
+        public int RollDice()
+        {
+            return new Random().Next(1, 7);
         }
     }
 }
